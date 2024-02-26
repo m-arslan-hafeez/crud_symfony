@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% set heading = "Products Management" %}
+{% set sub_heading = "List - Product" %}
+
+{% block stylesheets %}
+    <style>
+        #client_status {
+            height: 14px !important;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}FM Packages ERP | Edit Contacts{% endblock %}
+{% block body %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">{{ heading }}</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">{{ heading }}</a></li>
+                            <li class="breadcrumb-item active">{{ sub_heading }}</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Product List
+                                </h3>
+                                <a  href="{{ path('app_product_create') }}" class=" btn btn-sm btn-success pull-right btn-flat"
+                                 >Create new</a>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Description</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for product in products %}
+                                        {{ product|doSomething }}
+                                    <tr>
+                                        <td>{{ product.name }}</td>
+                                        <td>{{ product.description }}</td>
+                                        <td>{{ product.price }}</td>
+                                        <td>
+
+
+                                            <a  href="{{ path('app_product_delete', {'id': product.id}) }}" class=" btn btn-sm btn-danger pull-right btn-flat"
+                                            >Delete</a>
+                                            <a  href="{{ path('app_product_update', {'id': product.id}) }}" class=" btn btn-sm btn-primary pull-right btn-flat"
+                                            >Edit</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+{% endblock %}

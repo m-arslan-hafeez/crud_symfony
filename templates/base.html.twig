@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+       and uncomment the following Encore helpers to start using Symfony UX #}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
+
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('dist/css/custom.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+
+
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('plugins/datepicker/datepicker3.css') }}">
+
+
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+
+
+
+
+
+    <style>
+        .pagination > .active > a,
+        .pagination > .active > a:focus,
+        .pagination > .active > a:hover,
+        .pagination > .active > span,
+        .pagination > .active > span:focus,
+        .pagination > .active > span:hover {
+            background-color: #343a40;
+            border-color: #ddd;
+            color: white;
+        }
+    </style>
+    <style>
+        /* Add this CSS to your stylesheet or in a <style> tag in your HTML */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .card-header {
+            background-color: #DBDBD0;
+            border-bottom: none;
+            padding: 10px 15px;
+            border-top-left-radius: 10px; /* Add these lines */
+            border-top-right-radius: 10px; /* Add these lines */
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+        }
+        /* Add this CSS to your stylesheet or in a <style> tag in your HTML */
+        .btn.btn-sm {
+            border-radius: 5px; /* Adjust the value to control the roundness of the corners */
+            margin-right: 3px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+
+
+    {% block stylesheets %}
+        {#{{ encore_entry_link_tags('app') }}#}
+    {% endblock %}
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="{{ asset('plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
+    <script src="{{ asset('plugins/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
+    <script src="{{ asset('plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
+
+    <!-- Select2 -->
+    <script src="{{ asset('plugins/select2/js/select2.full.js') }}"></script>
+    <!-- ChartJS -->
+    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+
+    <!-- InputMask -->
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/inputmask/jquery.inputmask.min.js') }}"></script>
+
+    <!-- date-range-picker -->
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+
+    <script src="{{ asset('plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+
+
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}" ></script>
+
+    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    {#{% block top_navigation %}#}
+        {#{% include 'includes/top_navigation.html.twig' %}#}
+    {#{% endblock %}#}
+
+    {#{% block left_navigation %}#}
+        {#{% include 'includes/left_navigation.html.twig' %}#}
+    {#{% endblock %}#}
+
+
+    {% block body %}{% endblock %}
+
+    {#{% block right_navigation %}#}
+        {#{% include 'includes/right_navigation.html.twig' %}#}
+    {#{% endblock %}#}
+
+    {#{% block footer %}#}
+        {#{% include 'includes/footer.html.twig' %}#}
+    {#{% endblock %}#}
+
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+    <script>
+        $('.datetime').datepicker();
+
+    </script>
+    <script type="text/javascript">
+        //Initialize Select2 Elements
+        $('.select2').select2();
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        });
+
+    </script>
+    {% block javascripts %}
+    {% endblock %}
+</div>
+</body>
+</html>

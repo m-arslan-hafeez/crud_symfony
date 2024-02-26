@@ -1,0 +1,33 @@
+.required:after {
+    content:" *";
+    color: red;
+}
+
+.error > ul {
+    list-style:  none;
+    color: #B22222;
+    padding: 0;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+body {
+    font-size: 13px;
+}
+
+.select2-container--default .select2-selection--single {
+    border-radius: 0 !important;
+    border: 1px solid #ced4da !important;
+}
+
+
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+    height: 25px;
+}
